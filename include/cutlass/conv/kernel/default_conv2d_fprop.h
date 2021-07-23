@@ -165,11 +165,13 @@ struct DefaultConv2dFprop <
     Stages 
   >;
 
+  static const int kPartitionsK = ThreadblockShape::kK / WarpShape::kK;
+
   // Define the epilogue
   using Epilogue = typename epilogue::threadblock::DefaultEpilogueTensorOp<
     ThreadblockShape,
     WarpMmaTensorOp,
-    1,
+    kPartitionsK,
     EpilogueOutputOp,
     EpilogueOutputOp::kCount
   >::Epilogue;
@@ -283,11 +285,13 @@ struct DefaultConv2dFprop <
     Stages 
   >;
 
+  static const int kPartitionsK = ThreadblockShape::kK / WarpShape::kK;
+
   // Define the epilogue
   using Epilogue = typename epilogue::threadblock::DefaultInterleavedConvEpilogue<
     ThreadblockShape,
     WarpMmaTensorOp,
-    1,
+    kPartitionsK,
     EpilogueOutputOp,
     EpilogueOutputOp::kCount,
     InterleavedK
@@ -394,12 +398,14 @@ struct DefaultConv2dFprop <
     MmaPolicy
   >;
 
+  static const int kPartitionsK = ThreadblockShape::kK / WarpShape::kK;
+
   // Define the epilogue
   using Epilogue = typename detail::DefaultConvEpilogue<
     ArchTag,
     ThreadblockShape,
     WarpMmaTensorOp,
-    1,
+    kPartitionsK,
     EpilogueOutputOp
   >::Epilogue;
 
@@ -514,11 +520,13 @@ struct DefaultConv2dFprop <
     MmaPolicy
   >;
 
+  static const int kPartitionsK = ThreadblockShape::kK / WarpShape::kK;
+
   // Define the epilogue
   using Epilogue = typename epilogue::threadblock::DefaultInterleavedConvEpilogue<
     ThreadblockShape,
     WarpMmaTensorOp,
-    1,
+    kPartitionsK,
     EpilogueOutputOp,
     EpilogueOutputOp::kCount,
     InterleavedK
@@ -633,11 +641,13 @@ struct DefaultConv2dFprop <
     Stages 
   >;
 
+  static const int kPartitionsK = ThreadblockShape::kK / WarpShape::kK;
+
   // Define the epilogue
   using Epilogue = typename epilogue::threadblock::DefaultEpilogueTensorOp<
     ThreadblockShape,
     WarpMmaTensorOp,
-    1,
+    kPartitionsK,
     EpilogueOutputOp,
     EpilogueOutputOp::kCount
   >::Epilogue;
@@ -743,11 +753,13 @@ struct DefaultConv2dFprop <
     Stages 
   >;
 
+  static const int kPartitionsK = ThreadblockShape::kK / WarpShape::kK;
+
   // Define the epilogue
   using Epilogue = typename epilogue::threadblock::DefaultInterleavedConvEpilogue<
     ThreadblockShape,
     WarpMmaTensorOp,
-    1,
+    kPartitionsK,
     EpilogueOutputOp,
     EpilogueOutputOp::kCount,
     InterleavedK
@@ -856,12 +868,14 @@ struct DefaultConv2dFprop <
     MmaPolicy
   >;
 
+  static const int kPartitionsK = ThreadblockShape::kK / WarpShape::kK;
+
   // Define the epilogue
   using Epilogue = typename detail::DefaultConvEpilogue<
     ArchTag,
     ThreadblockShape,
     WarpMmaTensorOp,
-    1,
+    kPartitionsK,
     EpilogueOutputOp
   >::Epilogue;
 
@@ -966,11 +980,13 @@ struct DefaultConv2dFprop <
     MmaPolicy
   >;
 
+  static const int kPartitionsK = ThreadblockShape::kK / WarpShape::kK;
+
   // Define the epilogue
   using Epilogue = typename epilogue::threadblock::DefaultInterleavedConvEpilogue<
     ThreadblockShape,
     WarpMmaTensorOp,
-    1,
+    kPartitionsK,
     EpilogueOutputOp,
     EpilogueOutputOp::kCount,
     InterleavedK
