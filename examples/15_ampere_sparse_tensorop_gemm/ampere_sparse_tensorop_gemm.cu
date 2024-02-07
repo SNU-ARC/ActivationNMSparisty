@@ -59,16 +59,18 @@ efficiently.
 ///////////////////////////////////////////////
 ///// TEST CONFIGURATION
 ///////////////////////////////////////////////
-#define DENSE_GEMM_EN   1 // 0: disable, 1: enable
+#define DENSE_GEMM_EN   0 // 0: disable, 1: enable
 #define VEC_ADD_EN      1 // 0: disable, 1: enable
 #define REF_EN          2 // 0: disable, 1: host, 2: cutlass
 #define DBG_LOG_EN      0 // 0: disable, 1: enable
 
-#define LIST_ENTRY_NUM  2048 
+#define LIST_ENTRY_NUM  8192
 
-#define M_SIZE          512
-#define K_SIZE          20480
-#define N_SIZE          5120
+#define M_SIZE          8192
+#define K_SIZE          16384
+#define N_SIZE          4096
+//#define K_SIZE          20480
+//#define N_SIZE          5120
 #define M_EXTRA_SIZE    0
 
 
